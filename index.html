@@ -1,0 +1,133 @@
+<html>
+<head>
+	<title>Map Fish Print</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="resources/ol/css/ol.css" />
+	<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="resources/css/style.css" />
+	<link rel="stylesheet" href="resources/css/toggleswitch.css" />
+	
+	<!-- Javascript and Jquery -->
+	<script type="text/javascript" src="resources/ol/js/ol.js"></script>
+	<script type="text/javascript" src="resources/jquery/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="resources/bootstrap/js/bootstrap.min.js"></script>
+
+</head>	
+<body>
+	<div id="map"></div>
+	
+	<div id="mouseLocation" class="btn btn-default bottom_right"> Lat:0,Lon:0 </div>
+	
+	<div id="container">
+
+		<div id="printDivMain" class="top_left">
+			<div class="panel panel-primary">
+			<div class="panel-heading" role="button" data-toggle="collapse" data-target="#panel-body">
+				<h3><center>Layer Selection</center></h3>
+			</div>
+			<div class="panel-body collapse" id="panel-body">
+				<div class="row">
+					<div class="col-xs-7" style="text-align:left;">
+						<h4>Nepal Boundary</h4>
+						<h4>Development Regions</h4>
+						<h4>Physiographic Regions</h4>
+						<h4>Districts</h4>
+					</div>
+					<div class="col-xs-4" style="text-align:right;">
+					  	<div class="checkbox">
+							<label class="switch"><input type="checkbox" checked id="nepal" class="chk" value="Nepal" selected><span class="slider round"></span></label>
+						</div>
+						<div class="checkbox" style="margin-top: 5px;">
+							<label class="switch"><input type="checkbox" id="devRegions" class="chk" value="DevelopmentRegions"><span class="slider round"></span></label>
+						</div>
+						<div class="checkbox" style="margin-top: 5px;">
+							<label class="switch"><input type="checkbox" id="phyRegions" class="chk" value="PhysiographicRegions"><span class="slider round"></span></label>
+						</div>
+						<div class="checkbox" style="margin-top: 5px;">
+							<label class="switch"><input type="checkbox" id="districts" class="chk" value="Districts"><span class="slider round"></span></label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<a class="bbox"><h4><strong><span class="glyphicon glyphicon-screenshot "></span> Boundary Box</strong></h4></a>
+
+				<div id="box" class="row">
+					<div class="form-group col-xs-6">
+						<h5><strong> Draw Selection Box </strong></h5>
+						<label class="switch">
+						  <input id="select_box" type="checkbox">
+						  <span class="slider round"></span>
+						</label>
+					</div> 
+					<div class="form-group col-xs-6">
+						<h5><strong> Use Custom Box </strong></h5>
+						<label class="switch">
+						  <input id="custom_box" type="checkbox">
+						  <span class="slider round"></span>
+						</label>
+					</div> 
+				</div>
+				<!-- <a id="export-pdf"><span id="button-label" class="btn btn-info"> Export (PDF)</span></a> -->
+			</div>
+		</div>
+		
+		<div class="print_div top_right">
+			<div class="panel panel-primary">
+			<div class="panel-heading" role="button" data-toggle="collapse" data-target="#panel-body-print">
+				<h3><center><strong> Export/Print Map </strong></center></h3>
+			</div>
+			<div class="panel-body collapse" id="panel-body-print">
+				<form class="form-horizontal">
+				    <div class="form-group">
+				      <label class="control-label col-sm-4" for="map_title">Title</label>
+				      <div class="col-sm-8">
+				        <input type="text" class="form-control" id="map_title" placeholder="Map Title" name="map_title">
+				      </div>
+				    </div>
+				    <div class="form-group">
+				      <label class="control-label col-sm-4" for="size">Size</label>
+				      <div class="col-sm-8">
+					      <select class="form-control" id="size">
+					        <option value="A4 portrait">A4 portrait</option>
+					        <option value="A4 landscape">A4 landscape</option>
+					        <option value="A3 portrait">A3 portrait</option>
+					        <option value="A3 landscape">A3 landscape</option>
+					        <option value="Legal">Legal</option>
+					        <option value="Letter">Letter</option>
+					      </select>
+					  </div>
+				    </div>
+			        <div class="form-group">
+			          <label class="control-label col-sm-4" for="dpi">DPI</label>
+			          <div class="col-sm-8">
+			    	      <select class="form-control" id="dpi">
+			    	        <option value=75>75</option>
+			    	        <option value=150 selected>150</option>
+			    	        <option value=300>300</option>
+			    	      </select>
+			    	  </div>
+			        </div>			            			        
+				    <div class="form-group">        
+				      <div class="col-sm-offset-4 col-sm-8">
+				      	<a id="export"><span id="button-label" class="btn btn-success">Export</span></a>
+				      </div>
+				    </div>
+				  </form>
+			</div>	
+			<div class="panel-footer">
+				<div class="form-group">
+					<div id="map2"></div>
+				</div>
+			</div>	
+		</div>
+	</div>
+
+	<script type="text/javascript" src="resources/js/drag-box.js"></script>
+	<script type="text/javascript" src="resources/js/draw-box.js"></script>
+	<script type="text/javascript" src="resources/js/main.js"></script>
+	<script type="text/javascript" src="resources/js/MapfishImp.js"></script>
+	<script type="text/javascript" src="resources/js/mouseposition.js"></script>
+</body>
+</html>
